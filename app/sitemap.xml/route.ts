@@ -1,12 +1,5 @@
-import { supabase } from '@/lib/supabase';
-
 export async function GET() {
-  const baseUrl = 'https://www.realestateassets.com';
-
-  const { data: properties } = await supabase
-    .from('properties')
-    .select('slug, updated_at')
-    .eq('published', true);
+  const baseUrl = 'https://jbb-asset-management.vercel.app'; // Update this with your actual domain
 
   const staticPages = [
     { url: '', lastmod: new Date().toISOString() },
@@ -17,16 +10,9 @@ export async function GET() {
     { url: '/contact', lastmod: new Date().toISOString() },
   ];
 
-  const propertyPages = (properties || []).map((property) => ({
-    url: `/portfolio/${property.slug}`,
-    lastmod: property.updated_at,
-  }));
-
-  const allPages = [...staticPages, ...propertyPages];
-
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  ${allPages
+  ${staticPages
     .map(
       (page) => `
   <url>
