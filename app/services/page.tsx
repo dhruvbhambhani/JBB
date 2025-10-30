@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Services - RealEstate Assets',
+  title: 'Services - JBB Asset Management LLC',
   description: 'Comprehensive real estate asset management services including portfolio management, acquisition, optimization, and more.',
 };
 
@@ -84,29 +84,6 @@ export default function Services() {
     },
   ];
 
-  const process = [
-    {
-      step: '01',
-      title: 'Initial Consultation',
-      description: 'We begin by understanding your investment goals, risk tolerance, and portfolio requirements.',
-    },
-    {
-      step: '02',
-      title: 'Strategy Development',
-      description: 'Our team develops a customized asset management strategy aligned with your objectives.',
-    },
-    {
-      step: '03',
-      title: 'Implementation',
-      description: 'We execute the strategy through property acquisition, optimization, and ongoing management.',
-    },
-    {
-      step: '04',
-      title: 'Monitoring & Reporting',
-      description: 'Continuous performance tracking with transparent reporting and regular communication.',
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-slate-50">
       <section className="bg-gradient-to-br from-slate-900 to-slate-800 text-white py-16">
@@ -151,31 +128,6 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Our Process
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              A proven methodology for delivering exceptional results.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 text-white rounded-full text-2xl font-bold mb-4">
-                  {item.step}
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-600">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -191,7 +143,7 @@ export default function Services() {
               </Button>
             </Link>
             <Link href="/portfolio">
-              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10 text-white">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
                 View Portfolio
               </Button>
             </Link>

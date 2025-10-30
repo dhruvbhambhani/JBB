@@ -3,13 +3,10 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from './ui/button';
-import { supabase } from '@/lib/supabase';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,20 +14,6 @@ export function Header() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      setUser(user);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      (async () => {
-        setUser(session?.user || null);
-      })();
-    });
-
-    return () => subscription.unsubscribe();
   }, []);
 
   const navLinks = [
@@ -52,7 +35,7 @@ export function Header() {
         <div className="flex justify-between items-center h-16 md:h-20">
           <Link href="/" className="flex items-center space-x-2">
             <div className="text-2xl font-bold text-slate-900">
-              RealEstate<span className="text-blue-600">Assets</span>
+              JBB <span className="text-blue-600">Asset Management</span>
             </div>
           </Link>
 
@@ -67,18 +50,6 @@ export function Header() {
               </Link>
             ))}
           </nav>
-
-          <div className="hidden md:flex items-center space-x-4">
-            {user ? (
-              <Link href="/portal">
-                <Button>Portal</Button>
-              </Link>
-            ) : (
-              <Link href="/login">
-                <Button>Investor Login</Button>
-              </Link>
-            )}
-          </div>
 
           <button
             className="md:hidden text-slate-700"
@@ -102,15 +73,6 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              {user ? (
-                <Link href="/portal" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full">Portal</Button>
-                </Link>
-              ) : (
-                <Link href="/login" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full">Investor Login</Button>
-                </Link>
-              )}
             </nav>
           </div>
         )}
