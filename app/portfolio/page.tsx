@@ -24,7 +24,7 @@ export default function Portfolio() {
       website: 'https://pierclubapartments.com/',
       image: '/properties/pier-club.jpg',
       mapsLink: 'https://maps.app.goo.gl/LTuDGbW9t23Sed7H6',
-      coordinates: [29.6910, -95.5407], // Slightly offset to the right
+      coordinates: [29.683879861599877, -95.55024661728538],
     },
     {
       id: 2,
@@ -39,7 +39,7 @@ export default function Portfolio() {
       website: 'https://santabarbaraapts.com/',
       image: '/properties/santa-barbara.jpg',
       mapsLink: 'https://maps.app.goo.gl/4bSLdsEfDBx3nNDRA',
-      coordinates: [29.6905, -95.5418], // Slightly offset to the left
+      coordinates: [29.683368721261658, -95.55251595701445],
     },
     {
       id: 3,
@@ -55,7 +55,7 @@ export default function Portfolio() {
       image: '/properties/crescent-place.jpg',
       mapsLink: 'https://maps.app.goo.gl/jeV2N3qq8NakwuhEA',
       underContract: true,
-      coordinates: [29.6425, -95.5341],
+      coordinates: [29.671982474745736, -95.52911626985411],
     },
   ];
 
