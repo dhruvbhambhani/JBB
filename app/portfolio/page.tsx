@@ -82,8 +82,8 @@ export default function Portfolio() {
 
       // Initialize map
       map.current = L.map(mapContainer.current, {
-        center: [29.6667, -95.5378],
-        zoom: 12,
+        center: [29.6779, -95.5397],
+        zoom: 13,
         scrollWheelZoom: true,
       });
 
