@@ -74,7 +74,7 @@ export default function Portfolio() {
       bathrooms: 2,
       sqft: 1442,
       yearBuilt: 1986,
-      image: '/properties/4607-kilmarnoch.jpeg',
+      image: '/properties/4607-kilmarnoch.JPEG',
       coordinates: [29.59398843701031, -95.57986354417856],
     },
     {
@@ -113,7 +113,7 @@ export default function Portfolio() {
       bathrooms: 2,
       sqft: 1925,
       yearBuilt: 1988,
-      image: '/properties/13103-careywood1.jpeg',
+      image: '/properties/13103-careywood.JPEG',
       coordinates: [29.649151754960364, -95.61205203068572],
     },
     {
