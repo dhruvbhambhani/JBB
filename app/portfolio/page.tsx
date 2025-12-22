@@ -74,7 +74,7 @@ export default function Portfolio() {
       bathrooms: 2,
       sqft: 1442,
       yearBuilt: 1986,
-      image: '/properties/4607-kilmarnoch.JPEG',
+      image: '/properties/4607-kilmarnoch.jpeg',
       coordinates: [29.59398843701031, -95.57986354417856],
     },
     {
