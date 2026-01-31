@@ -58,7 +58,6 @@ export default function Portfolio() {
       website: null,
       image: '/properties/crescent-place.jpg',
       mapsLink: 'https://maps.app.goo.gl/jeV2N3qq8NakwuhEA',
-      underContract: true,
       coordinates: [29.671982474745736, -95.52911626985411],
     },
   ];
@@ -134,7 +133,7 @@ export default function Portfolio() {
   // Multi-Family Map
   useEffect(() => {
     if (activeTab !== 'multifamily') return;
-    
+
     const link = document.createElement('link');
     link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
     link.rel = 'stylesheet';
@@ -147,10 +146,10 @@ export default function Portfolio() {
     script.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
     script.crossOrigin = '';
     script.async = true;
-    
+
     script.onload = () => {
       if (map.current) return;
-      
+
       const L = (window as any).L;
 
       map.current = L.map(mapContainer.current, {
@@ -197,7 +196,6 @@ export default function Portfolio() {
             <h3 style="font-weight: bold; margin: 0 0 8px 0; font-size: 16px; color: #0f172a;">${property.name}</h3>
             <p style="margin: 0 0 4px 0; font-size: 14px; color: #64748b;">${property.address}</p>
             <p style="margin: 0 0 8px 0; font-size: 14px; color: #64748b;">${property.units} Units • Built ${property.yearBuilt}</p>
-            ${property.underContract ? '<span style="display: inline-block; background: #2563eb; color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600;">Under Contract</span>' : ''}
           </div>
         `;
 
@@ -218,7 +216,7 @@ export default function Portfolio() {
   // Single Family Map
   useEffect(() => {
     if (activeTab !== 'singlefamily') return;
-    
+
     if (!document.querySelector('link[href*="leaflet.css"]')) {
       const link = document.createElement('link');
       link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
@@ -234,11 +232,11 @@ export default function Portfolio() {
       script.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
       script.crossOrigin = '';
       script.async = true;
-      
+
       script.onload = () => {
         initSingleFamilyMap();
       };
-      
+
       document.head.appendChild(script);
     } else {
       initSingleFamilyMap();
@@ -246,7 +244,7 @@ export default function Portfolio() {
 
     function initSingleFamilyMap() {
       if (singleFamilyMap.current) return;
-      
+
       const L = (window as any).L;
 
       singleFamilyMap.current = L.map(singleFamilyMapContainer.current, {
@@ -297,7 +295,7 @@ export default function Portfolio() {
         `;
 
         marker.bindPopup(popupContent);
-        
+
         marker.on('click', () => {
           setActivePropertyIndex(index);
         });
@@ -337,11 +335,10 @@ export default function Portfolio() {
           <div className="flex justify-center border-b border-slate-200">
             <button
               onClick={() => setActiveTab('multifamily')}
-              className={`px-8 py-4 text-lg font-semibold transition-colors relative ${
-                activeTab === 'multifamily'
+              className={`px-8 py-4 text-lg font-semibold transition-colors relative ${activeTab === 'multifamily'
                   ? 'text-slate-900'
                   : 'text-slate-500 hover:text-slate-700'
-              }`}
+                }`}
             >
               Multi-Family Properties
               {activeTab === 'multifamily' && (
@@ -350,11 +347,10 @@ export default function Portfolio() {
             </button>
             <button
               onClick={() => setActiveTab('singlefamily')}
-              className={`px-8 py-4 text-lg font-semibold transition-colors relative ${
-                activeTab === 'singlefamily'
+              className={`px-8 py-4 text-lg font-semibold transition-colors relative ${activeTab === 'singlefamily'
                   ? 'text-slate-900'
                   : 'text-slate-500 hover:text-slate-700'
-              }`}
+                }`}
             >
               Single-Family Rentals
               {activeTab === 'singlefamily' && (
@@ -379,8 +375,8 @@ export default function Portfolio() {
                 </p>
               </div>
 
-              <div 
-                ref={mapContainer} 
+              <div
+                ref={mapContainer}
                 className="w-full h-[500px] rounded-xl overflow-hidden shadow-lg border border-slate-200"
                 style={{ zIndex: 1 }}
               />
@@ -399,11 +395,6 @@ export default function Portfolio() {
                 {properties.map((property) => (
                   <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="relative h-64 bg-slate-200 overflow-hidden">
-                      {property.underContract && (
-                        <div className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold z-10 shadow-lg">
-                          Under Contract
-                        </div>
-                      )}
                       <img
                         src={property.image}
                         alt={property.name}
@@ -421,7 +412,7 @@ export default function Portfolio() {
                       </h3>
 
                       <div className="space-y-3 mb-6">
-                        <a 
+                        <a
                           href={property.mapsLink}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -475,8 +466,8 @@ export default function Portfolio() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Map */}
-              <div 
-                ref={singleFamilyMapContainer} 
+              <div
+                ref={singleFamilyMapContainer}
                 className="w-full h-[600px] rounded-xl overflow-hidden shadow-lg border border-slate-200"
                 style={{ zIndex: 1 }}
               />
@@ -493,11 +484,11 @@ export default function Portfolio() {
                           alt={singleFamilyHomes[activePropertyIndex].address}
                           className="w-full h-full object-cover"
                           style={
-                            singleFamilyHomes[activePropertyIndex].id === 2 
-                              ? { objectPosition: 'center 30%' } 
-                              : singleFamilyHomes[activePropertyIndex].id === 5 
-                              ? { objectPosition: 'center 40%' }
-                              : undefined
+                            singleFamilyHomes[activePropertyIndex].id === 2
+                              ? { objectPosition: 'center 30%' }
+                              : singleFamilyHomes[activePropertyIndex].id === 5
+                                ? { objectPosition: 'center 40%' }
+                                : undefined
                           }
                         />
                       </div>
