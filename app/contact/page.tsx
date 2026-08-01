@@ -18,7 +18,7 @@ export default function Contact() {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="mb-8 hover:shadow-lg transition-shadow">
-            <CardContent className="p-12">
+            <CardContent className="p-6 sm:p-12">
               <div className="flex flex-col items-center text-center">
                 <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-6">
                   <Mail className="w-10 h-10 text-blue-600" />
@@ -29,7 +29,7 @@ export default function Contact() {
                 </p>
                 <a 
                   href="mailto:jbbassetmanagement@yahoo.com" 
-                  className="text-3xl font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                  className="text-lg sm:text-2xl md:text-3xl font-semibold text-blue-600 hover:text-blue-700 transition-colors break-all"
                 >
                   jbbassetmanagement@yahoo.com
                 </a>
