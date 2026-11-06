@@ -1,5 +1,5 @@
 export async function GET() {
-  const baseUrl = 'https://jbb-asset-management.vercel.app'; // Update this with your actual domain
+  const baseUrl = 'https://www.jbbassetmanagement.com';
 
   const staticPages = [
     { url: '', lastmod: new Date().toISOString() },

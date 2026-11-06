@@ -4,4 +4,4 @@ Allow: /
 Disallow: /portal/
 Disallow: /login
 
-Sitemap: https://www.realestateassets.com/sitemap.xml
+Sitemap: https://www.jbbassetmanagement.com/sitemap.xml
